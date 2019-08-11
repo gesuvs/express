@@ -1,0 +1,7 @@
+{
+    "watch":["src/app"],
+    "ext":"ts",
+    "execMap":{
+        "ts":"sucrase-node src/app/app.ts"
+    }
+}
