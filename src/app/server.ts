@@ -1,30 +1,33 @@
 import express from 'express'
 import cors from 'cors'
-import mongoose from 'mongoose'
+// import mongoose from 'mongoose'
+import keys from '../database/keys'
+import config from '../middlewares/config';
+
 
 class Server {
     public express: express.Application
-
+    
     public constructor () {
       this.express = express()
       this.middlewares()
-      this.database()
+      this.databaseConnect()
       this.routes()
+      this.config()
     }
 
     private middlewares (): void {
       this.express.use(express.json())
       this.express.use(cors())
     }
-
-    private database (): void {
-      mongoose.connect('mongodb+srv://SVN7V:futebol1996santos@jesusdb-csczi.azure.mongodb.net/test?retryWrites=true&w=majority', {
-        useNewUrlParser: true
-      })
+    private config(){
+      config.middlewares()
+    }
+    private databaseConnect():void {
+        keys.database()
     }
 
     private routes (): void {
-      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       this.express.get('/', (req, res) => {
         return res.send('Hello World')
       })
