@@ -10,16 +10,11 @@ class Server {
     
     public constructor () {
       this.express = express()
-      this.middlewares()
       this.databaseConnect()
       this.routes()
       this.config()
     }
 
-    private middlewares (): void {
-      this.express.use(express.json())
-      this.express.use(cors())
-    }
     private config(){
       config.middlewares()
     }
