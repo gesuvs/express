@@ -3,6 +3,7 @@ import cors from 'cors'
 // import mongoose from 'mongoose'
 import keys from '../database/keys'
 import config from '../middlewares/config';
+import index from '../routes/indexRoutes';
 
 
 class Server {
@@ -23,9 +24,7 @@ class Server {
     }
 
     private routes (): void {
-      this.express.get('/', (req, res) => {
-        return res.send('Hello World')
-      })
+      index.express
     }
 }
 export default new Server().express
