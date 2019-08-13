@@ -24,7 +24,7 @@ class Server {
     }
 
     private routes (): void {
-      index.express
+      index.express 
     }
 }
 export default new Server().express
