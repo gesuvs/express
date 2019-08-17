@@ -1,19 +1,15 @@
-import express from 'express'
-
+import { Router } from 'express';
 class IndexRoutes {
-    public express: express.Application
+    public router:Router = Router();
 
     constructor() {
-        this.express = express()
-        this.index()
+        this.indexRoutes()
     }
 
-    private index(): void {
-        this.express.get('/', (req, res) => {
-            return res.send('Hello World')
-        })
+    public indexRoutes(): void {
+        this.router.get('/', indexController.index)
     }
 }
 
 const indexRoutes = new IndexRoutes()
-export default indexRoutes;
+export default indexRoutes.router

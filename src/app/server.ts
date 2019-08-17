@@ -1,19 +1,18 @@
-import express from 'express'
 import cors from 'cors'
-// import mongoose from 'mongoose'
 import keys from '../database/keys'
 import config from '../middlewares/config';
-import index from '../routes/indexRoutes';
-
+import indexRoutes from '../routes/indexRoutes';
+import app from '../app/app';
 
 class Server {
-    public express: express.Application
+    // public express: express.Application
     
     public constructor () {
-      this.express = express()
+      // this.express = express()
       this.databaseConnect()
-      this.routes()
       this.config()
+      this.routes()
+      this.app()
     }
 
     private config(){
@@ -22,9 +21,11 @@ class Server {
     private databaseConnect():void {
         keys.database()
     }
-
-    private routes (): void {
-      index.express 
+    private routes():void{
+      indexRoutes.indexRoutes()
+    }
+    private app():void{
+      app.start()
     }
 }
-export default new Server().express
+export default new Server()
