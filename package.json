@@ -4,8 +4,9 @@
   "main": "app.js",
   "license": "MIT",
   "scripts": {
+    "start":"node dist/app/app.js",
     "dev": "nodemon src/app/app.ts",
-    "build": "tsc -w"
+    "build": "node dist/app/app.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.5",
