@@ -11,7 +11,7 @@ class Server {
       // this.express = express()
       this.databaseConnect()
       this.config()
-      this.routes()
+      // this.routes()
       this.app()
     }
 
@@ -21,9 +21,9 @@ class Server {
     private databaseConnect():void {
         keys.database()
     }
-    private routes():void{
-      indexRoutes.indexRoutes()
-    }
+    // private routes():void{
+    //   indexRoutes.indexRoutes()
+    // }
     private app():void{
       app.start()
     }
